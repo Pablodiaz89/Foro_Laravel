@@ -9,6 +9,13 @@ use Livewire\Component;
 class ShowThreads extends Component
 {
     public $search = '';
+    public $category = '';
+
+
+    public function filterByCategory($category)
+    {
+        $this->category = $category;
+    }
 
     public function render()
     {
@@ -16,6 +23,11 @@ class ShowThreads extends Component
 
         $threads = Thread::query();
         $threads->where('title', 'like', "%$this->search%");
+
+        if ($this->category) {
+            $threads->where('category_id', $this->category);
+        }
+
         $threads->withCount('replies');
         $threads->latest();
         return view('livewire.show-threads', [
