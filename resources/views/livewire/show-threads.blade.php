@@ -49,7 +49,7 @@
                     <div class="w-full">
                         <h2 class="mb-4 flex items-start justify-between">
                             <!-- título pregunta -->
-                            <a href="" class="text-xl font-semibold text-white/90">
+                            <a href="{{ route('thread', $thread) }}" class="text-xl font-semibold text-white/90">
                                 {{ $thread->title }}
                             </a>
                             <!-- categoría -->
