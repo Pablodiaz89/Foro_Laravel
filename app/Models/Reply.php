@@ -13,4 +13,10 @@ class Reply extends Model
         'thread_id',
         'body',
     ];
+
+    // una respuesta pertenece a un usuario
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
